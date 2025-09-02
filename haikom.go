@@ -27,10 +27,10 @@ type UserService struct {
 }
 
 type HaikomUser struct {
-	user     string
-	password string
-	project  string
-	url      string
+	User     string
+	Password string
+	Project  string
+	Url      string
 }
 
 func NewUserService(u UserInterface) *UserService {
@@ -47,13 +47,13 @@ func (h HaikomUser) GetUser(token, client, requestid string) (User, error) {
 
 	msg := fmt.Sprintf("<request><token>%s</token></request>", token)
 
-	cc, err := http.NewRequest(http.MethodPost, h.url, strings.NewReader(msg))
+	cc, err := http.NewRequest(http.MethodPost, h.Url, strings.NewReader(msg))
 	if checkError(err) {
 		return User{}, ErrorHaikom
 	}
-	cc.Header.Add("project", h.project)
-	cc.Header.Add("username", h.user)
-	cc.Header.Add("password", h.password)
+	cc.Header.Add("project", h.Project)
+	cc.Header.Add("username", h.User)
+	cc.Header.Add("password", h.Password)
 	cc.Header.Add("Content-Type", "text/xml")
 
 	resp, err := http.DefaultClient.Do(cc)

@@ -61,10 +61,10 @@ func TestGetUserReal(t *testing.T) {
 	requestid := "test-requestid"
 
 	haikom := HaikomUser{
-		user:     os.Getenv("HAIKOM_USER"),
-		password: os.Getenv("HAIKOM_PASSWORD"),
-		project:  os.Getenv("HAIKOM_PROJECT"),
-		url:      os.Getenv("HAIKOM_URL"),
+		User:     os.Getenv("HAIKOM_USER"),
+		Password: os.Getenv("HAIKOM_PASSWORD"),
+		Project:  os.Getenv("HAIKOM_PROJECT"),
+		Url:      os.Getenv("HAIKOM_URL"),
 	}
 
 	t.Run("TestGetUser", func(t *testing.T) {
