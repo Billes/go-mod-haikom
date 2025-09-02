@@ -69,7 +69,7 @@ func TestGetUserReal(t *testing.T) {
 
 	t.Run("TestGetUser", func(t *testing.T) {
 		// Call function to be tested
-		UserTestService := NewHaikomUserClient(haikom)
+		UserTestService := NewUserService(haikom)
 		user, err := UserTestService.User.GetUser(token, client, requestid)
 		if err != nil {
 			t.Errorf("Error getting user: %v", err)
