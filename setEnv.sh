@@ -1,0 +1,5 @@
+export HAIKOM_USER=""
+export HAIKOM_PASSWORD=""
+export HAIKOM_URL=""
+export HAIKOM_PROJECT="billes"
+export HAIKOM_TOKEN=""
