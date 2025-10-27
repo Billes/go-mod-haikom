@@ -5,14 +5,14 @@ import (
 )
 
 type User struct {
-	CustomerId string `json:"customerId" `
 	Firstname  string `json:"firstname"`
 	Lastname   string `json:"lastname"`
 	Email      string `json:"email"`
 	Locale     string `json:"locale"`
 	Group      string `json:"group"`
 	Role       string `json:"role"`
-	Client     string `json:"client"`
+	ClientId   string `json:"clientId"`
+	ClientName string `json:"clientName"`
 	Access     string `json:"access"`
 }
 
@@ -20,7 +20,8 @@ func (u *User) MapXml(dbm *UserXml) {
 	u.Email = dbm.Email
 	u.Firstname = dbm.Firstname
 	u.Lastname = dbm.Lastname
-	u.CustomerId = dbm.CustomerId
+	u.ClientId = dbm.CustomerId
+	u.ClientName = dbm.Customername
 	for _, prop := range dbm.Properties {
 		u.Locale = getProperty("locale", prop.Property)
 		u.Group = getProperty("bmsGroups", prop.Property)
