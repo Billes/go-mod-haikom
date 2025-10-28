@@ -1,6 +1,7 @@
 package gomodhaikom
 
 import (
+	"encoding/json"
 	"os"
 	"testing"
 )
@@ -74,6 +75,7 @@ func TestGetUserReal(t *testing.T) {
 		if err != nil {
 			t.Errorf("Error getting user: %v", err)
 		}
-		t.Log(user)
+		j, _ := json.Marshal(user)
+		t.Log(string(j))
 	})
 }

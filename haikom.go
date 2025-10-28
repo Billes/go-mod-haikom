@@ -81,6 +81,7 @@ func (h HaikomUser) GetUser(token, client, requestid string) (User, error) {
 		return cr, ErrorUserClientNotValid
 	}
 	cr.MapXml(&userXml.User)
+	cr.ClientIdentifier = client
 	return cr, nil
 }
 
