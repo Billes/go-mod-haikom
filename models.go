@@ -14,6 +14,8 @@ type User struct {
 	ClientId         string `json:"clientId"`         //i.e 1
 	ClientIdentifier string `json:"clientIdentifier"` //i.e billes
 	ClientName       string `json:"clientName"`       //i.e Billes
+	ShopId           string `json:"shopId"`
+	ShopName         string `json:"shopName"`
 	Access           string `json:"access"`
 }
 
@@ -23,6 +25,8 @@ func (u *User) MapXml(dbm *UserXml) {
 	u.Lastname = dbm.Lastname
 	u.ClientId = dbm.CustomerId
 	u.ClientName = dbm.Customername
+	u.ShopId = dbm.OfficeId
+	u.ShopName = dbm.Office
 	for _, prop := range dbm.Properties {
 		u.Locale = getProperty("locale", prop.Property)
 		u.Group = getProperty("bmsGroups", prop.Property)
