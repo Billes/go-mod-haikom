@@ -27,6 +27,7 @@ func (u *User) MapXml(dbm *UserXml) {
 		u.Locale = getProperty("locale", prop.Property)
 		u.Group = getProperty("bmsGroups", prop.Property)
 		u.Role = getProperty("role", prop.Property)
+		u.ClientIdentifier = getProperty("client", prop.Property)
 	}
 }
 
