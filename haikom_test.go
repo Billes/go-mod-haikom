@@ -58,7 +58,6 @@ import (
 func TestGetUserReal(t *testing.T) {
 	// Set up test data
 	token := os.Getenv("HAIKOM_TOKEN")
-	client := "billes"
 	requestid := "test-requestid"
 
 	haikom := HaikomUser{
@@ -71,7 +70,7 @@ func TestGetUserReal(t *testing.T) {
 	t.Run("TestGetUser", func(t *testing.T) {
 		// Call function to be tested
 		UserTestService := NewUserService(haikom)
-		user, err := UserTestService.User.GetUser(token, client, requestid)
+		user, err := UserTestService.User.GetUser(token, requestid)
 		if err != nil {
 			t.Errorf("Error getting user: %v", err)
 		}

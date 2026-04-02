@@ -19,7 +19,7 @@ var (
 )
 
 type UserInterface interface {
-	GetUser(token, client, requestid string) (User, error)
+	GetUser(token, requestid string) (User, error)
 }
 
 type UserService struct {
@@ -39,7 +39,7 @@ func NewUserService(u UserInterface) *UserService {
 	}
 }
 
-func (h HaikomUser) GetUser(token, client, requestid string) (User, error) {
+func (h HaikomUser) GetUser(token, requestid string) (User, error) {
 
 	const ErrorFunc string = "CheckHaikomToken"
 
@@ -73,7 +73,7 @@ func (h HaikomUser) GetUser(token, client, requestid string) (User, error) {
 
 	cr := User{}
 	userXml := CustomerResponse{}
-	err = xml.Unmarshal([]byte(resBody), &userXml)
+	err = xml.Unmarshal(resBody, &userXml)
 	if err != nil {
 		return cr, ErrorUserClientGeneral
 	}
